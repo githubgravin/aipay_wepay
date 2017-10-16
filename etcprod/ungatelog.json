@@ -1,0 +1,37 @@
+{
+  "env_keys": {
+    "run_env": "RUN_MODE"
+  },
+  "loggers": [
+    {
+      "name": "default",
+      "config": {
+        "prod": {
+          "out": {
+          },
+          "level": "error"
+        },
+        "dev": {
+          "level": "debug",
+          "formatter": {
+            "name": "mylog"
+          },
+          "hooks": [
+            {
+              "name": "myfile",
+              "options": {
+                "filename": "./log/ungateprd.log",
+                "maxlines": "0",
+                "maxsize": "8000000",
+                "daily": true,
+                "maxdays": 30,
+                "rotate": true,
+                "level": 4
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

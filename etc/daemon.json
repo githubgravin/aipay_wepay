@@ -1,0 +1,57 @@
+{
+  "env_keys": {
+    "run_env": "RUN_MODE"
+  },
+  "loggers": [
+    {
+      "name": "default",
+      "config": {
+        "prod": {
+          "out": {
+              "name" : "null", 
+              "options" : {}
+          },
+          "level": "debug", 
+          "hooks": [
+            {
+              "name": "myfile",
+              "options": {
+                "filename": "./log/daemon.log",
+                "maxlines": "0",
+                "maxsize": "8000000",
+                "daily": true,
+                "maxdays": 30,
+                "rotate": true,
+                "level": 4
+              }
+            }
+          ]
+        },
+        "dev": {
+          "out": {
+              "name" : "null", 
+              "options" : {}
+          },
+          "level": "debug",
+          "formatter": {
+              "name" : "mylog"
+          },
+          "hooks": [
+            {
+              "name": "myfile",
+              "options": {
+                "filename": "./log/daemon.log",
+                "maxlines": "0",
+                "maxsize": "8000000",
+                "daily": true,
+                "maxdays": 30,
+                "rotate": true,
+                "level": 4
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

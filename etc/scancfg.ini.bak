@@ -1,0 +1,53 @@
+
+InsList=A79991101,W79991102
+
+[A79991101]
+LogName = alipay79991101
+APPID=2015051100069170
+#APPID = 2016080101690412                                 #浦发APPID
+#SysServiceProviderID=2088321023702475                   #浦发支付宝服务商ID
+InsIdCd=79991101    #无卡核心内部机构号
+SignKeyFile = ./etc/key_file/alipay/loc_pri_a.pem   #  签名私钥
+EncKeyFile = ./etc/key_file/alipay/rem_pub.pem    #  /*加密证书*/
+
+LocalAddr= 192.168.20.55
+NotiUrl=http://192.168.20.55:20031/HttpSvr
+NotiNum=3
+NotifyUrl= http://112.65.164.218:40112/qrpayNoti55/A/79991101          #  通知地址
+RemoteURL = https://openapi.alipay.com/gateway.do          #  支付宝URL
+RemoteFileURL = 7777                                         #  支付宝文件下载
+ReqTimeOut  = 60                                               #  请求超时时间
+QueryCnt = 5   #w3查询次数
+QueryInt=3       #w3查询间隔 秒
+CancelCnt = 2   #w3未知，撤销次数
+
+TranTimeOut=1m  #交易超时时间
+OrderTimeOut=5m  #订单创建超时时间
+
+FilePath = /app/go/scanGate/data/
+PidMap={"80000000": "123456"}
+
+
+
+[W79991102]
+LogName=wepay79991102
+servername=浦发微信
+serverid=79991102
+appid=wx7758a16e0ab66e37
+wemchtid=1341886001
+appsecret=11111111111111111111111111111111
+billdir=/app/go/scanGate/data/
+#通信
+ServerTimeOut=60
+bindaddr=192.168.20.55
+outip=112.65.164.218
+NotiUrl=http://192.168.20.55:20031/HttpSvr
+NotiNum=3
+NotifyUrl=http://112.65.164.218:40112/qrpayNoti55/W/79991102
+remoteurl=https://api.mch.weixin.qq.com/
+QueryCnt=5
+QueryInt=3
+#安全
+PrivateCert=./etc/key_file/wepay/apiclient_cert.pem
+PrivateKey=./etc/key_file/wepay/apiclient_key.pem
+
